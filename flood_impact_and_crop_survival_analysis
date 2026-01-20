@@ -1,0 +1,64 @@
+# flood survival analysis
+# Author: Swarupa
+
+# Crop survival database (in days)
+crops = {
+    "rice": 12,
+    "sugarcane": 8,
+    "soyabean": 5,
+    "cotton": 3,
+    "wheat": 4
+}
+
+# User input
+crop = input("Enter crop name: ").lower()
+
+if crop not in crops:
+    print("Crop data not available.")
+    exit()
+
+try:
+    flood_days = int(input("Enter flood duration days: "))
+except ValueError:
+    print("Invalid input. Enter a valid number.")
+    exit()
+
+if flood_days <= 0:
+    print("Flood duration must be greater than zero.")
+    exit()
+
+# Core logic
+survival_days = crops[crop]
+
+# Flood Severity Index (FSI)
+fsi = flood_days / survival_days
+
+# Survival percentage
+if flood_days <= survival_days:
+    survival_percent = 100
+else:
+    survival_percent = (survival_days / flood_days) * 100
+
+# Risk classification based on FSI
+if fsi <= 1:
+    status = "SAFE"
+    recommendation = "Crop is safe. Normal monitoring is sufficient."
+elif fsi <= 1.5:
+    status = "LOW RISK"
+    recommendation = "Minor risk detected. Drain excess water if possible."
+elif fsi <= 2:
+    status = "MEDIUM RISK"
+    recommendation = "Moderate risk. Protective measures are recommended."
+else:
+    status = "HIGH RISK"
+    recommendation = "Severe risk. Immediate intervention is required."
+
+# Output report
+print("\n--- Crop Survival Analysis Report ---")
+print(f"Crop Name           : {crop.capitalize()}")
+print(f"Flood Duration      : {flood_days} days")
+print(f"Survival Capacity   : {survival_days} days")
+print(f"Flood Severity Index: {fsi:.2f}")
+print(f"Survival Probability: {survival_percent:.2f}%")
+print(f"Risk Status         : {status}")
+print(f"Recommendation      : {recommendation}")
