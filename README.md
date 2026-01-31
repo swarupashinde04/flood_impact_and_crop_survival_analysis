@@ -80,7 +80,7 @@ The system provides:
 ## 🛠️ Technology Used
 
 - Python  
-- Dictionary-based data modeling  
+- CSV (Crop survival data is loaded dynamically from a CSV file, allowing easy extension without modifying code.)
 - Conditional logic  
 - Console-based input/output  
 
