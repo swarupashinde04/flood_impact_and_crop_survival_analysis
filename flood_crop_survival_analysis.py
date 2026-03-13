@@ -1,0 +1,71 @@
+# Flood Survival Analysis
+# Author: Swarupa
+
+import csv
+
+def load_crop_data():
+    crop_dict = {}
+
+    with open("crop_data.csv", "r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            crop_dict[row['crop'].lower()] = int(row['survival_days'])
+
+    return crop_dict
+
+
+# LOAD CSV DATA
+crops = load_crop_data()
+
+# USER INPUT
+crop = input("Enter crop name: ").lower()
+
+if crop not in crops:
+    print("Crop data not available.")
+    exit()
+
+try:
+    flood_days = int(input("Enter flood duration days: "))
+except ValueError:
+    print("Invalid input. Enter a valid number.")
+    exit()
+
+if flood_days <= 0:
+    print("Flood duration must be greater than zero.")
+    exit()
+
+# CORE LOGIC
+survival_days = crops[crop]
+
+# Flood Severity Index (FSI)
+fsi = flood_days / survival_days
+
+# Survival percentage
+if flood_days <= survival_days:
+    survival_percent = 100
+else:
+    survival_percent = (survival_days / flood_days) * 100
+
+# Risk classification
+if fsi <= 1:
+    status = "SAFE"
+    recommendation = "Crop is safe. Normal monitoring is sufficient."
+elif fsi <= 1.5:
+    status = "LOW RISK"
+    recommendation = "Minor risk detected. Drain excess water if possible."
+elif fsi <= 2:
+    status = "MEDIUM RISK"
+    recommendation = "Moderate risk. Protective measures are recommended."
+else:
+    status = "HIGH RISK"
+    recommendation = "Severe risk. Immediate intervention is required."
+
+# OUTPUT
+print("\n--- Crop Survival Analysis Report ---")
+print(f"Crop Name            : {crop.capitalize()}")
+print(f"Flood Duration       : {flood_days} days")
+print(f"Survival Capacity    : {survival_days} days")
+print(f"Flood Severity Index : {fsi:.2f}")
+print(f"Survival Probability : {survival_percent:.2f}%")
+print(f"Risk Status          : {status}")
+print(f"Recommendation       : {recommendation}")
