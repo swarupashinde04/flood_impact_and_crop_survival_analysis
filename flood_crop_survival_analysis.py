@@ -5,7 +5,7 @@ import csv
 
 def load_crop_data():
     crop_dict = {}
-
+    
     with open("crop_data.csv", "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
