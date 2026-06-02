@@ -1,7 +1,7 @@
 # Flood Survival Analysis
 # Author: Swarupa
 
-import csV
+import csv
 
 def load_crop_data():
     crop_dict = {}
