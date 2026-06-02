@@ -13,7 +13,6 @@ def load_crop_data():
 
     return crop_dict
 
-
 # LOAD CSV DATA
 crops = load_crop_data()
 
