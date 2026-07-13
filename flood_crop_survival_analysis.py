@@ -1,6 +1,5 @@
 # Flood Survival Analysis
-# Author: Swarupa
-
+# Author: Swarupa 
 import csv
 
 def load_crop_data():
