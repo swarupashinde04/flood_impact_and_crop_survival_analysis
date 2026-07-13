@@ -2,7 +2,6 @@
 # Author: Swarupa
 
 import csv
-
 def load_crop_data():
     crop_dict = {}
     
