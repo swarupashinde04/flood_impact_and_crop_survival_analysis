@@ -8,7 +8,7 @@
 
 ## 📌 Problem Statement
 
-Floods are one of the most frequent natural disasters in India and often result in severe agricultural losses.  
+Floods are one of the most frequent natural disasters in India and often result in severe agricultural losses. 
 Farmers usually do not have quick, data-based guidance to understand:
 
 - Whether a specific crop can survive a flood  
