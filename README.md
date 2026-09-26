@@ -2,7 +2,7 @@
 
 **Author:** Swarupa Shinde,
 **Level:** Undergraduate (1st Year, B.Tech) 
-**Domain:** Disaster Impact Analysis | Agriculture | Decision Support Systems  
+**Domain:** Disaster Impact Analysis | Agriculture | Decision Support Systems 
 
 ---
 
